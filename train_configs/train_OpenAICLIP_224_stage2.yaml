@@ -1,0 +1,43 @@
+model_name: "dcr"
+data_config:
+  train_batch_size: 16
+  num_workers: 4
+  img_size: 224
+  img_dir: dataset/CC3M/
+  seed: 0
+  patch_size: 1
+clip_config:
+  sd_model_name: "sd-2.1"
+  clip_image_size: 224
+  clip_dim: 1024
+  t5_dim: 1280
+lora_config:
+  r: 16
+  lora_alpha: 16
+  lora_dropout: 0.1
+  bias: "lora_only"
+report_to: tensorboard
+scale_factor: 1.0
+train_batch_size: 16
+load_dir: output/output_OpenAICLIP_224_stage1/
+load_step: 100000
+output_dir: output/output_OpenAICLIP_224_stage2/
+max_train_steps: 4600
+learning_rate: 1e-5
+lr_scheduler: constant
+lr_warmup_steps: 10
+adam_beta1: 0.9
+adam_beta2: 0.999
+adam_weight_decay: 0.01
+adam_epsilon: 1e-8
+momentum: 0.9
+weight_decay: 0.01
+max_grad_norm: 1.0
+logging_dir: logs
+mixed_precision: "bf16"
+checkpointing_steps: 500
+checkpoints_total_limit: 50
+tracker_project_name: sd-2.1
+resume_from_checkpoint: latest
+gradient_accumulation_steps: 2
+rank: 1

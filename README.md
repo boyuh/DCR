@@ -72,7 +72,7 @@
 - Place the pre-trained models in the `pretrained_weights` folder with the following structure:
 
   ```bash
-  DCR/
+  DCR
   ├── pretrained_weights
   │   ├── SD
   │   │   └── stable-diffusion-v2-1
